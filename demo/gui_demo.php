@@ -85,7 +85,7 @@ catch(Throwable $e)
 if ( file_exists(rtrim($root, '/') . '/' . rtrim(PROJECT, '/') . '/composer.json') )
     echo file_get_contents(rtrim($root, '/') . '/' . rtrim(PROJECT, '/') . '/composer.json');
 else 
-    echo "<strong style=\"color:firebrick;\">No composer.json file detected ; you MUST install composer by hitting the SETUP button below.</strong>";
+    echo "<strong style=\"color:firebrick;\">No composer.json file detected ; you MUST install composer by hitting the SETUP link below.</strong>";
 
 ?></pre></p>
         
