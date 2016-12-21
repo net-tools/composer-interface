@@ -1,0 +1,6 @@
+{
+    "composer_setup" : "https://getcomposer.org/installer",
+    "composer_install_ok" : " successfully installed",
+    "composer_archive_ok" : "Created: ",
+    "composer_archive_pattern" : "#\\./.*\\.(zip|tar)#"
+}

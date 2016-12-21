@@ -1,0 +1,13 @@
+{
+   "name" : "vendor/name",
+   "description" : "project description",
+   "license" : "proprietary",
+   "authors": [
+	  {
+		 "name": "Company name",
+		 "email": "user@domain.tld",
+		 "homepage": "http://www.domain.tld",
+		 "role": "Developer"
+	  }
+   ]
+}

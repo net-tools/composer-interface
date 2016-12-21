@@ -1,0 +1,28 @@
+{
+    "name" : "net-tools/composer-interface",
+	
+    "description" : "Interface to Composer through PHP library when direct SSH access is not available",
+	
+	"type": "library",
+	
+	"require" : {
+		"php": ">= 5.4.0"
+	},
+	
+    "license" : "MIT",
+
+	"autoload": {
+		"psr-4": {
+			"Nettools\\ComposerInterface\\": "src/"
+		}
+    },
+	 
+    "authors": [
+        {
+            "name": "Pierre",
+            "email": "dev@net-tools.ovh",
+            "role": "Developer"
+        }
+    ]
+
+}
