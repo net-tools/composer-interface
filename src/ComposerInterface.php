@@ -169,7 +169,7 @@ class ComposerInterface
      
     
     /**
-     * Composer archive statement
+     * Composer archive package statement
      *
      * @param string $package Package name to archive
      * @param string $format Format of archive (defaults to 'zip')
@@ -218,6 +218,45 @@ class ComposerInterface
 	{
 		return $this->command("clear-cache");
 	}
+     
+    
+    /**
+     * Composer archive statement
+     *
+     * @param string $format Format of archive (defaults to 'zip')
+     * @param bool $download If true, the file will be downloaded immediately ; otherwise, we return a file path to the archive
+     * @param string $downloadFilename Set this parameter to any suggested file name for the download (the filename the browser will suggest in the save as dialog)
+     */
+    public function archive($format = 'zip', $download = true, $downloadFilename = 'project.zip')
+    {
+		// execute archive command
+		$ret = $this->command("archive --format=$format");
+		if ( mb_strpos($ret, $this->_rootConfig->composer_archive_ok) === FALSE )
+			throw new ComposerException('Archive command failed : ' . $ret);
+
+		// if archived file found
+		if ( !preg_match($this->_rootConfig->composer_archive_pattern, $ret, $regs) )
+			throw new ComposerException('Archive file cannot be identified : ' . $ret);
+
+		// exclude "./" at line start
+		$f = substr($regs[0], 2);
+
+        if ( $download )
+        {
+            // en-tête pour forcer le téléchargement et suggérer un nom
+            header("Content-Type: application/$format; name=\"$downloadFilename\"");
+            header("Content-Disposition: attachment; filename=\"$downloadFilename\"");
+            header("Expires: 0");
+            header("Cache-Control: no-cache, must-revalidate");
+            header("Pragma: no-cache"); 
+
+            readfile($this->_libc . "/$f");
+            unlink($this->_libc . "/$f");
+            die();
+        }
+        else    
+            return $this->_libc . "/$f";        
+    }
 
     
     /**
