@@ -61,9 +61,12 @@ class ComposerInterface
                     $f = fopen($this->_libc . '/composer.json', 'w');
                     fwrite($f, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
                     fclose($f);
-                    break;
+                    
+                    return '';
                 }
 		}
+        
+        return 'Package introuvable';
 	}
 
     
@@ -88,6 +91,8 @@ class ComposerInterface
 		$f = fopen($this->_libc . '/composer.json', 'w');
 		fwrite($f, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 		fclose($f);
+        
+        return '';
 	}
 
 	
