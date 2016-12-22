@@ -99,6 +99,7 @@ else
             - <a href="?composer=update">Update</a>
             - <a href="?composer=validate">Validate</a>
             - <a href="?composer=diagnose">Diagnose</a>
+            - <a href="?composer=archive">Archive</a>
             - <a href="?composer=outdated">Outdated</a>
             - <a href="?composer=self_update">Self-update</a>
         </p>
