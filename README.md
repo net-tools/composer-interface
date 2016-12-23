@@ -21,7 +21,7 @@ Since you are looking for a Composer interface, we assume that you can't run Com
 In order to use the PHP interface to Composer, *and after having uploaded the ZIP release to your host*, you must :
 
 1. create a client config file in JSON format (or define a PHP associative array) ; see below for required parameters,
-1. include the `ComposerInterface.php` file (since Composer is not installed yet, you don't have it's autoload mechanism available),
+1. include the `src/autoload.php` file (this is a custom autoload file, since Composer is not installed yet, you don't have it's autoload mechanism available),
 1. in a PHP script, create a `ComposerInterface` object with a config object and the path of your Composer project,
 1. call one of the supported Composer command as methods of the `ComposerInterface` object.
 
@@ -37,8 +37,8 @@ composer_home             | Path to the Composer home folder ; usually, this is 
 Then create a config instance and pass it to the `ComposerInterface` constructor :
 
 ```php
-// include script (you may point the inclusion to the right path to ComposerInterface.php)
-include_once "ComposerInterface.php";
+// include script (you may point the inclusion to the right path to src/autoload.php)
+include_once "autoload.php";
 
 // create config object
 $config = Config::fromJSON(__DIR__ . '/composer.config.json');
@@ -72,11 +72,5 @@ To run the demo, just modify the provided client config file `composer.config.js
 The demo will create a `libc-composerinterface` folder on your web root. If you want another name or path, modify the `PROJECT` constant on the top lines of the demo file.
 
 **Please note that the demo comes with an empty composer project and no Composer package**. The Composer software **MUST** be installed. To do so, you have to hit the SETUP button on the GUI (or call the `setup` method of `ComposerInterface` in a script of your own). This will download Composer and run the install script. A default composer.json will be created. THEN you can play around with require, update, etc.
-
-
-
-
-
-
 
 

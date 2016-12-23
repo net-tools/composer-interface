@@ -12,9 +12,6 @@
 namespace Nettools\ComposerInterface;
 
 
-include_once "ComposerException.php";
-include_once "Config.php";
-
 
 
 /**
@@ -153,6 +150,18 @@ class ComposerInterface
 	public function package_update($package)
 	{
 		return $this->command("update --no-progress $package");
+	}
+     
+    
+	/**
+     * Composer prohibits package statement
+     * 
+     * @param string $package Package name ("vendor/name")
+     * @return string Shell command output
+     */
+	public function package_prohibits($package)
+	{
+		return $this->command("prohibits $package -t");
 	}
      
     

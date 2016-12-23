@@ -17,7 +17,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 
 // include composer interface api
 ini_set('display_errors', 'stdout');
-include_once '../src/ComposerInterface.php';
+include_once '../src/autoload.php';
 
 
 use \Nettools\ComposerInterface\ComposerInterface;
@@ -115,6 +115,7 @@ else
                     <input type="button" value="update" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
                     <input type="button" value="show" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
                     <input type="button" value="archive" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
+                    <input type="button" value="prohibits" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
                     <input type="button" value="depends" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
                     <input type="button" value="show_dependencies" onclick="this.form.package_cmd.value=this.value; this.form.submit();">
             </p>
