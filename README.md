@@ -61,6 +61,19 @@ $output = $composer->package_require('net-tools/core');
 echo "<pre>$output</pre>";
 ```
 
+Composer commands have been separated in 3 groups :
+
+- global commands
+- commands applied to packages
+- commands applied to repositories
+
+Global commands are called with the corresponding method name (eg `$composer->diagnose()`). Package commands are called with the *package_* prefix (eg `$composer->package_update('vendor/name')`). Repositories commands are more specific :
+
+- to add a repository : `$composer->repository_add('path', 'http://url')`
+- to remove a repository : `$composer->repository_remove('http://url')`
+
+If you want to send a command not supported by `ComposerInterface`, you may use the `Command` method : `$composer->command('unsupportedcommand vendor/name arguments')`.
+
 
 
 ### Demo 
