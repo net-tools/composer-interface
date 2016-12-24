@@ -1,0 +1,22 @@
+{
+    "name" : "net-tools/composer-interface",
+	
+    "description" : "PHP shell interface to Composer when SSH is not available on your host ",
+	
+	"type": "library",
+	
+	"require" : {
+		"php": ">= 5.4.0"
+	},
+	
+    "license" : "MIT",
+
+    "authors": [
+        {
+            "name": "Pierre",
+            "email": "dev@net-tools.ovh",
+            "role": "Developer"
+        }
+    ]
+
+}
