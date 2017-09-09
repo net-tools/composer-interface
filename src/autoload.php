@@ -1,8 +1,7 @@
 <?php
 
-include_once "ComposerException.php";
-include_once "Config.php";
-include_once "ComposerInterface.php";
-
+include_once __DIR__ . "/ComposerException.php";
+include_once __DIR__ . "/Config.php";
+include_once __DIR__ . "/ComposerInterface.php";
 
 ?>
