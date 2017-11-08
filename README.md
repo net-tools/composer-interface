@@ -21,7 +21,7 @@ Since you are looking for a Composer interface, we assume that you can't run Com
 In order to use the PHP interface to Composer, *and after having uploaded the ZIP release to your host*, you must :
 
 1. create a client config file in JSON format (or define a PHP associative array) ; see below for required parameters,
-1. include the `src/autoload.php` file (this is a custom autoload file, since Composer is not installed yet, you don't have it's autoload mechanism available),
+1. include the `src/autoload.php` file (this is a custom autoload file, since Composer is not installed yet, you don't have its autoload mechanism available),
 1. in a PHP script, create a `ComposerInterface` object with a config object and the path of your Composer project,
 1. call one of the supported Composer command as methods of the `ComposerInterface` object.
 
@@ -41,9 +41,9 @@ Then create a config instance and pass it to the `ComposerInterface` constructor
 include_once "autoload.php";
 
 // create config object
-$config = Config::fromJSON(__DIR__ . '/composer.config.json');
+$config = \Nettools\ComposerInterface\Config::fromJSON(__DIR__ . '/composer.config.json');
 // OR
-// $config = Config::fromArray(array('composer_phpbin'=>'usr/local/php7.0/bin/php', 'composer_home'=>$_SERVER['DOCUMENT_ROOT']));
+// $config = \Nettools\ComposerInterface\Config::fromArray(array('composer_phpbin'=>'usr/local/php7.0/bin/php', 'composer_home'=>$_SERVER['DOCUMENT_ROOT']));
 
 // create interface and set the composer project to be in folder LIBCOMPOSER, directly placed under the web root folder
 $composer = new ComposerInterface($config, rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/libcomposer');
