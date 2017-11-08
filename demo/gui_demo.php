@@ -21,7 +21,6 @@ include_once '../src/autoload.php';
 
 
 use \Nettools\ComposerInterface\ComposerInterface;
-use \Nettools\ComposerInterface\Config;
 
 
 
@@ -29,7 +28,7 @@ use \Nettools\ComposerInterface\Config;
 try
 {
     // create config object and set composer home (here, the parent folder of document root, so that other composer projects may benefit from global caching)
-    $config = Config::fromJSON(__DIR__ . '/composer.config.json');
+    $config = \Nettools\ComposerInterface\Config::fromJSON(__DIR__ . '/composer.config.json');
     $config->composer_home = dirname(rtrim($root, '/'));
 
     // create interface and set the composer project to be in folder PROJECT
