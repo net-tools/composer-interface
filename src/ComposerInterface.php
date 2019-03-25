@@ -193,6 +193,7 @@ class ComposerInterface
 			throw new ComposerException('Archive command failed : ' . $ret);
 
 		// if archived file found
+		$regs = [];
 		if ( !preg_match($this->_rootConfig->composer_archive_pattern, $ret, $regs) )
 			throw new ComposerException('Archive file cannot be identified : ' . $ret);
 
@@ -244,6 +245,7 @@ class ComposerInterface
 			throw new ComposerException('Archive command failed : ' . $ret);
 
 		// if archived file found
+		$regs = [];
 		if ( !preg_match($this->_rootConfig->composer_archive_pattern, $ret, $regs) )
 			throw new ComposerException('Archive file cannot be identified : ' . $ret);
 
