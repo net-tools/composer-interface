@@ -24,7 +24,7 @@ class Config
      */
     public function __get($k)
     {
-        return $this->_data->{$k};
+        return property_exists($this->_data, $k) ? $this->_data->{$k} : null;
     }
     
     
