@@ -73,7 +73,7 @@ catch(Throwable $e)
 ?><html>
     <body>
         <?php
-        if( $ret )
+        if( isset($ret) )
             echo "<pre style=\"background-color:black; color:white;\">$ret</pre>";
         ?>
         
