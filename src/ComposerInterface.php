@@ -43,7 +43,7 @@ class ComposerInterface
 		$json = json_decode(file_get_contents($this->_libc . '/composer.json'));
 
 		// if repositories defined
-		if ( isset($json->repositories) )
+		if ( isset($json->repositories) && is_array($json->repositories) )
 		{
             foreach ( $json->repositories as $k=>$repo )
                 if ( $repo->url == $url )

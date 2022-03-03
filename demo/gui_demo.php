@@ -36,21 +36,21 @@ try
 
     
     // global commands (not relative to a package or repository)
-    if ( isset($_REQUEST['composer']) )
+    if ( !empty($_REQUEST['composer']) )
         $ret = $composer->{$_REQUEST['composer']}();
 
 
     // package commands
-    else if ( isset($_REQUEST['package_cmd']) && isset($_REQUEST['package']) )
+    else if ( !empty($_REQUEST['package_cmd']) && !empty($_REQUEST['package']) )
         $ret = $composer->{'package_' . $_REQUEST['package_cmd']}($_REQUEST['package']);
 
     
     // repositories commands
-    else if ( isset($_REQUEST['repository_cmd']) && isset($_REQUEST['url']) )
+    else if ( !empty($_REQUEST['repository_cmd']) && !empty($_REQUEST['url']) )
         switch ( $_REQUEST['repository_cmd'] )
         {
             case 'add' : 
-                if ( isset($_REQUEST['type']) )
+                if ( !empty($_REQUEST['type']) )
                     $ret = $composer->repository_add($_REQUEST['type'], $_REQUEST['url']);
                 break;
                 
@@ -61,7 +61,7 @@ try
     
     
     // user command (not supported by this library)
-    else if ( isset($_REQUEST['cmd']) )
+    else if ( !empty($_REQUEST['cmd']) )
         $ret = $composer->command($_REQUEST['cmd']);
 }
 catch(Throwable $e)
