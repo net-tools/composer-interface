@@ -51,8 +51,8 @@ class ComposerInterface
                     // delete value
                     unset($json->repositories[$k]);
                     
-                    // use array_merge to reset numeric keys to 0
-                    $json->repositories = array_merge($json->repositories);
+                    // use array_values to reset numeric keys to 0
+                    $json->repositories = array_values($json->repositories);
                     
                     // update composer.json
                     $f = fopen($this->_libc . '/composer.json', 'w');
