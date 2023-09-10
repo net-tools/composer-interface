@@ -75,11 +75,6 @@ Global commands are called with the corresponding method name (eg `$composer->di
 If you want to send a command not supported by `ComposerInterface`, you may use the `Command` method : `$composer->command('unsupportedcommand vendor/name arguments')`.
 
 
-### API Reference
-
-A PHPDoc documenting all supported commands is available here : [API Reference](http://net-tools.ovh/api-reference/net-tools/Nettools/ComposerInterface.html).
-
-
 ### Demo 
 
 A simple GUI interface is provided in the demo/ subfolder.
